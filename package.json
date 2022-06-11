@@ -1,0 +1,19 @@
+{
+  "name": "u-movie",
+  "version": "1.0.0",
+  "description": "Movies Web",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deromeroo/Movie.git"
+  },
+  "author": "@deromeroo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deromeroo/Movie/issues"
+  },
+  "homepage": "https://github.com/deromeroo/Movie#readme"
+}
