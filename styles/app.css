@@ -89,24 +89,65 @@ button {
 
 
 /* Shared */
-.header-container, .trendingPreview-header, .categoriesPreview-container {
+.header-container, .trendingPreview-header, .categoriesPreview-container, .liked-title {
   padding: 0 24px;
 }
 
-.trendingPreview-container, .categoriesPreview-container, footer {
+.trendingPreview-container, .categoriesPreview-container, .liked-container, footer {
   margin-top: 48px;
 }
 
-.trendingPreview-header, .categoriesPreview-title {
+.trendingPreview-header, .categoriesPreview-title, .liked-title {
   margin-bottom: 24px;
 }
 
 .movie-container {
   cursor: pointer;
+  position: relative;
+}
+
+.movie-container--loading{
+  background: var(--purple-medium-2);
+  border-radius: 8px;
+  height: 225px;
+  min-height: 225px;
+  max-height: 225px;
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+  margin-bottom: 15px;
+  animation: loading-skeleton infinite 1.5s;
+}
+.movie-container--loading:nth-child(2) {
+  animation-delay: .2s;
+}
+.movie-container--loading:nth-child(3) {
+  animation-delay: .4s;
 }
 
 .movie-img {
   border-radius: 8px;
+  min-height: 150px;
+}
+
+.movie-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #ffffff5c;
+  padding: 0;
+  margin: 0;
+}
+
+.movie-btn::before {
+  content: '❤️';
+}
+
+.movie-btn--liked{
+  background-color: var(--purple-medium-2);
 }
 
 .categoriesPreview-list, .categories-list {
@@ -116,6 +157,24 @@ button {
   position: relative;
   flex-wrap: wrap;
 }
+
+.category-container--loading{
+  background: var(--purple-medium-1);
+  border-radius: 8px;
+  height: 25px;
+  min-height: 25px;
+  max-height: 25px;
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+  margin-bottom: 15px;
+  animation: loading-skeleton infinite 1.5s;
+}
+.category-container--loading:nth-child(2) {
+  animation-delay: .2s;
+}
+
+
 
 
 /* Header */
@@ -172,8 +231,8 @@ button {
 }
 
 
-/* Trending */
-.trendingPreview-header {
+/* Trending / Liked */
+.trendingPreview-header, .liked-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -184,7 +243,7 @@ button {
   height: 32px;
 }
 
-.trendingPreview-movieList {
+.trendingPreview-movieList, .liked-movieList {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -193,12 +252,13 @@ button {
   padding-bottom: 16px;
 }
 
-.trendingPreview-movieList .movie-container {
+.trendingPreview-movieList .movie-container, .liked-movieList .movie-container {
   display: inline-block;
   margin-right: 8px;
 }
 
-.trendingPreview-movieList .movie-container .movie-img {
+.trendingPreview-movieList .movie-container .movie-img, 
+.liked-movieList .movie-container .movie-img {
   height: 225px;
   min-height: 225px;
   max-height: 225px;
@@ -354,3 +414,14 @@ footer {
 .inactive {
   display: none;
 }
+
+/*Animations*/
+
+@keyframes loading-skeleton {
+  0%, 100% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+};
